@@ -99,12 +99,12 @@
 
             <!-- Cortina Esquerda -->
             <div id="cortina-esq" class="cortina w-1/2 h-full border-r-4 border-xilo relative shadow-[10px_0_15px_rgba(0,0,0,0.5)] z-20 overflow-hidden bg-terra">
-                <img src="Arretados.png" alt="Cortina Esquerda" class="absolute top-0 left-0 w-[200%] h-full max-w-none object-cover object-left pointer-events-none" onerror="this.src='https://images.unsplash.com/photo-1534073828943-f801091bb18c?auto=format&fit=crop&q=80&w=1000'">
+                <img src="arretados.png" alt="Cortina Esquerda" class="absolute top-0 left-0 w-[200%] h-full max-w-none object-cover object-left pointer-events-none">
             </div>
             
             <!-- Cortina Direita -->
             <div id="cortina-dir" class="cortina w-1/2 h-full border-l-4 border-xilo relative shadow-[-10px_0_15px_rgba(0,0,0,0.5)] z-20 overflow-hidden bg-terra">
-                <img src="Arretados.png" alt="Cortina Direita" class="absolute top-0 right-0 w-[200%] h-full max-w-none object-cover object-right pointer-events-none" onerror="this.src='https://images.unsplash.com/photo-1534073828943-f801091bb18c?auto=format&fit=crop&get=80&w=1000'">
+                <img src="arretados.png" alt="Cortina Direita" class="absolute top-0 right-0 w-[200%] h-full max-w-none object-cover object-right pointer-events-none">
             </div>
         </div>
     </div>
@@ -147,8 +147,8 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
-                    <div class="w-full aspect-[4/3] bg-sol border-b-4 border-xilo mb-4 overflow-hidden relative flex items-center justify-center rounded-sm">
-                        <img src="farofa.jpg" alt="Boneco do Palhaço Farofa" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'font-titulo text-6xl\'>🤡</span>'">
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 overflow-hidden relative flex items-center justify-center rounded-sm">
+                        <img src="farofa.jpg" alt="Boneco do Palhaço Farofa" class="w-full h-full object-contain">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Farofa</h4>
                     <p class="text-sm font-bold border-l-4 border-sol pl-2 mb-2">Palhaço de Lã</p>
@@ -156,39 +156,57 @@
                 </article>
 
                 <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
-                    <div class="w-full aspect-[4/3] bg-terra border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="ze do saco.jpg" alt="Boneco do Zé do Saco" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'font-titulo text-6xl\'>🤠</span>'">
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
+                        <img src="ze do saco.jpg" alt="Boneco do Zé do Saco" class="w-full h-full object-contain">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Zé do Saco</h4>
                     <p class="text-sm font-bold border-l-4 border-terra pl-2 mb-2">Barba de Sisal</p>
                     <p class="text-sm leading-relaxed">Olhar profundo e sábio. Esculpido nos causos antigos, sua barba de sisal carrega as histórias e os mistérios do sertão bravio.</p>
                 </article>
+                
+                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
+                        <img src="xoxa.jpg" alt="Boneco Xoxa" class="w-full h-full object-contain">
+                    </div>
+                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Xoxa</h4>
+                    <p class="text-sm font-bold border-l-4 border-terra pl-2 mb-2">Comadre Faladeira</p>
+                    <p class="text-sm leading-relaxed">Não guarda segredo de ninguém! Sabe de tudo que acontece na vila e espalha a fofoca mais rápido que o vento no sertão.</p>
+                </article>
 
                 <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
-                    <div class="w-full aspect-[4/3] bg-chita border-b-4 border-xilo mb-4 flex items-center justify-center rounded-sm">
-                        <div class="text-cordel text-center"><span class="font-titulo text-6xl">⛪</span></div>
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
+                        <img src="benedito.jpg" alt="Boneco Benedito" class="w-full h-full object-contain">
                     </div>
-                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Irmã Silêncio</h4>
+                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Benedito</h4>
+                    <p class="text-sm font-bold border-l-4 border-chita pl-2 mb-2">Herói Valente</p>
+                    <p class="text-sm leading-relaxed">O herói do nosso teatro! Trabalhador, astuto e destemido. Enfrenta o Coronel, a Morte e até o Diabo por sua amada Mariquinha.</p>
+                </article>
+
+                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
+                        <img src="a morte.jpg" alt="A Morte" class="w-full h-full object-contain">
+                    </div>
+                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">A Morte</h4>
                     <p class="text-sm font-bold border-l-4 border-chita pl-2 mb-2">Hábito de Cetim</p>
-                    <p class="text-sm leading-relaxed">Com suas mãos em prece, traz a calmaria. Mas não se engane: por trás do véu, ela sabe fofocar os pecados de toda a vizinhança!</p>
+                    <p class="text-sm leading-relaxed">Debochada e arretada, adora prega peça, e arruma confusão onde não tem, ama dançar um forró quando ver o circo pegar fogo.</p>
                 </article>
 
                 <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
-                    <div class="w-full aspect-[4/3] bg-sol border-b-4 border-xilo mb-4 flex items-center justify-center rounded-sm">
-                        <div class="text-terra text-center"><span class="font-titulo text-6xl">💃🏽</span></div>
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
+                        <img src="mariquinha.jpg" alt="Mariquinha" class="w-full h-full object-contain">
                     </div>
-                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Dona Marieta</h4>
+                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Mariquinha</h4>
                     <p class="text-sm font-bold border-l-4 border-sol pl-2 mb-2">Vestido de Chita</p>
-                    <p class="text-sm leading-relaxed">A dona da festa! Seu vestido rodado de chita vermelha hipnotiza quando ela entra para dançar um forró pé-de-serra no palco.</p>
+                    <p class="text-sm leading-relaxed">O coração dela já tem dono: é apaixonada por Benedito. Mas o seu pai, que é político, coronel e brabo, não aceita o namoro de jeito nenhum.</p>
                 </article>
 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group sm:col-span-2 lg:col-span-1">
-                    <div class="w-full aspect-[4/3] bg-xilo border-b-4 border-xilo mb-4 flex items-center justify-center rounded-sm">
-                        <div class="text-terra text-center"><span class="font-titulo text-6xl">👹</span></div>
+                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                    <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
+                        <img src="o diabo.jpg" alt="O Diabo" class="w-full h-full object-contain">
                     </div>
-                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">O Cão</h4>
+                    <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">O Diabo</h4>
                     <p class="text-sm font-bold border-l-4 border-xilo pl-2 mb-2">Máscara e Chifres</p>
-                    <p class="text-sm leading-relaxed">O temido! Com chifres pontudos e cara vermelha, ele vem assustar, mas acaba sempre apanhando do herói da história e virando piada.</p>
+                    <p class="text-sm leading-relaxed">Ele retrata a luta entre o bem e o mal com temas atuais do cotidiano nordestino.</p>
                 </article>
             </div>
         </section>
@@ -201,9 +219,11 @@
                 <select id="seletor-boneco" class="bg-cordel text-xilo border-4 border-xilo p-3 font-titulo text-base md:text-lg focus:outline-none focus:ring-4 focus:ring-sol cursor-pointer w-full sm:w-auto">
                     <option value="farofa">Palhaço Farofa</option>
                     <option value="ze">Zé do Saco</option>
-                    <option value="irma">Irmã Silêncio</option>
-                    <option value="marieta">Dona Marieta</option>
-                    <option value="cao">O Cão</option>
+                    <option value="xoxa">Xoxa</option>
+                    <option value="benedito">Benedito</option>
+                    <option value="morte">A Morte</option>
+                    <option value="mariquinha">Mariquinha</option>
+                    <option value="diabo">O Diabo</option>
                 </select>
                 <button id="btn-gerar" class="bg-sol text-xilo border-4 border-xilo font-titulo px-6 py-3 text-base md:text-lg shadow-xilo hover:shadow-none hover:translate-y-1 hover:translate-x-1 transition-all w-full sm:w-auto">
                     Puxar o Verso!
@@ -322,16 +342,24 @@
                 "Com sua barba de sisal\nE um olhar muito profundo\nZé do Saco traz a lenda\nDo começo deste mundo\nCarrega o peso da terra\nNum coração vagabundo.",
                 "Seu Zé vem passo a passo\nCom sabedoria antiga\nNo cordel ou no compasso\nEle nunca arranja briga\nMa se pisar no seu calo\nÉ melhor você dar liga!"
             ],
-            irma: [
-                "Irmã Silêncio rezando\nCom o terço bem na mão\nMas o olho tá espiando\nTudo que há na confusão\nEla ora pelas almas\nE vigia o quarteirão!",
-                "Hábito de seda fina\nMas a língua é afiada\nSabe tudo da rotina\nDessa nossa meninada\nReza um pai-nosso ligeiro\nPra salvar a batucada."
+            xoxa: [
+                "A Xoxa chegou na praça\nCom a língua bem afiada\nSabe da vida de todos\nNão perde uma presepada\nSe contar um causo a ela\nJá sabe a vila inteirada!",
+                "Comadre Xoxa falante\nQue não para de matraquear\nSabe o fuxico de ontem\nE o que ainda vai rolar\nNo teatro de mamulengo\nEla é quem manda falar!"
             ],
-            marieta: [
-                "Dona Marieta faceira\nCom seu vestido rodado\nFeito de chita primeira\nDeixa qualquer um babado\nQuando ela pisa na tábua\nO forró tá começado!",
-                "Batom vermelho na boca\nUm sorriso de lascar\nA poeira logo sobe\nQuando ela vai dançar\nMarieta é a rainha\nDeste nosso popular."
+            benedito: [
+                "Benedito é cabra macho\nNão foge da confusão\nEnfrenta até a Morte\nPra ganhar o coração\nDa sua bela Mariquinha\nA flor do nosso sertão!",
+                "Valente e trabalhador\nBenedito é o nosso herói\nBate no bicho feroz\nE o orgulho não destrói\nCom seu pedaço de pau\nQualquer maldade ele mói!"
             ],
-            cao: [
-                "O Cão vem com cara feia\nDois chifres e muita brasa\nMas o herói logo peia\nE o capeta bate asa\nVolta pro fundo do poço\nQue o mamulengo é quem manda!",
+            morte: [
+                "Com seu hábito de cetim\nA Morte vem pra dançar\nNo meio do mamulengo\nEla gosta de brincar\nMas não se assuste com ela\nQue o forró vai começar!",
+                "Debochada e arretada\nA Morte não tem sossego\nAdora uma confusão\nE também um chamego\nQuando o circo pega fogo\nEla dança no terreiro!"
+            ],
+            mariquinha: [
+                "Com vestido de chita\nMariquinha é um primor\nPor nosso herói Benedito\nEla morre de amor\nMas o seu pai coronel\nÉ brabo que causa dor!",
+                "Bela flor do nosso palco\nMariquinha apaixonada\nFoge com seu Benedito\nNa calada da alvorada\nDeixando o pai furioso\nCom a fuga dessa amada!"
+            ],
+            diabo: [
+                "O Diabo vem com cara feia\nDois chifres e muita brasa\nMas o herói logo peia\nE o capeta bate asa\nVolta pro fundo do poço\nQue o mamulengo é quem manda!",
                 "Máscara rubra de medo\nCom tridente e muita treta\nEle acha que é o rei\nMas só faz é careta\nLeva pancada de rodo\nE foge na lambreta!"
             ]
         };
