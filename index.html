@@ -73,6 +73,19 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        /* Custom Scrollbar para o modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #f4e4bc; 
+            border-left: 2px solid #1a1a1a;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #800000; 
+            border: 2px solid #1a1a1a;
+        }
     </style>
 </head>
 <body class="font-corpo text-xilo overflow-x-hidden">
@@ -99,12 +112,12 @@
 
             <!-- Cortina Esquerda -->
             <div id="cortina-esq" class="cortina w-1/2 h-full border-r-4 border-xilo relative shadow-[10px_0_15px_rgba(0,0,0,0.5)] z-20 overflow-hidden bg-terra">
-                <img src="arretados.png" alt="Cortina Esquerda" class="absolute top-0 left-0 w-[200%] h-full max-w-none object-cover object-left pointer-events-none">
+                <img src="arretados.png" alt="Cortina Esquerda" class="absolute top-0 left-0 w-[200%] h-full max-w-none object-cover object-left pointer-events-none" onerror="this.style.display='none'">
             </div>
             
             <!-- Cortina Direita -->
             <div id="cortina-dir" class="cortina w-1/2 h-full border-l-4 border-xilo relative shadow-[-10px_0_15px_rgba(0,0,0,0.5)] z-20 overflow-hidden bg-terra">
-                <img src="arretados.png" alt="Cortina Direita" class="absolute top-0 right-0 w-[200%] h-full max-w-none object-cover object-right pointer-events-none">
+                <img src="arretados.png" alt="Cortina Direita" class="absolute top-0 right-0 w-[200%] h-full max-w-none object-cover object-right pointer-events-none" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -146,68 +159,98 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                
+                <article onclick="abrirModal('farofa')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 overflow-hidden relative flex items-center justify-center rounded-sm">
-                        <img src="farofa.jpg" alt="Boneco do Palhaço Farofa" class="w-full h-full object-contain">
+                        <img src="farofa.jpg" alt="Boneco do Palhaço Farofa" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Farofa</h4>
                     <p class="text-sm font-bold border-l-4 border-sol pl-2 mb-2">Palhaço de Lã</p>
-                    <p class="text-sm leading-relaxed">A alegria em pessoa! Com sua cabeleira de lã vibrante, Farofa é quem puxa a risada da meninada e a bagunça no terreiro.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">A alegria em pessoa! Com sua cabeleira de lã vibrante, Farofa é quem puxa a risada da meninada e a bagunça no terreiro.</p>
                 </article>
 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                <article onclick="abrirModal('ze')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="ze do saco.jpg" alt="Boneco do Zé do Saco" class="w-full h-full object-contain">
+                        <img src="ze do saco.jpg" alt="Boneco do Zé do Saco" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Zé do Saco</h4>
                     <p class="text-sm font-bold border-l-4 border-terra pl-2 mb-2">Barba de Sisal</p>
-                    <p class="text-sm leading-relaxed">Olhar profundo e sábio. Esculpido nos causos antigos, sua barba de sisal carrega as histórias e os mistérios do sertão bravio.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">Olhar profundo e sábio. Esculpido nos causos antigos, sua barba de sisal carrega as histórias e os mistérios do sertão bravio.</p>
                 </article>
                 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                <article onclick="abrirModal('xoxa')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="xoxa.jpg" alt="Boneco Xoxa" class="w-full h-full object-contain">
+                        <img src="xoxa.jpg" alt="Boneco Xoxa" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Xoxa</h4>
                     <p class="text-sm font-bold border-l-4 border-terra pl-2 mb-2">Comadre Faladeira</p>
-                    <p class="text-sm leading-relaxed">Não guarda segredo de ninguém! Sabe de tudo que acontece na vila e espalha a fofoca mais rápido que o vento no sertão.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">Não guarda segredo de ninguém! Sabe de tudo que acontece na vila e espalha a fofoca mais rápido que o vento no sertão.</p>
                 </article>
 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                <article onclick="abrirModal('benedito')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="benedito.jpg" alt="Boneco Benedito" class="w-full h-full object-contain">
+                        <img src="benedito.jpg" alt="Boneco Benedito" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Benedito</h4>
                     <p class="text-sm font-bold border-l-4 border-chita pl-2 mb-2">Herói Valente</p>
-                    <p class="text-sm leading-relaxed">O herói do nosso teatro! Trabalhador, astuto e destemido. Enfrenta o Coronel, a Morte e até o Diabo por sua amada Mariquinha.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">O herói do nosso teatro! Trabalhador, astuto e destemido. Enfrenta o Coronel, a Morte e até o Diabo por sua amada Mariquinha.</p>
                 </article>
 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                <article onclick="abrirModal('morte')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="a morte.jpg" alt="A Morte" class="w-full h-full object-contain">
+                        <img src="a morte.jpg" alt="A Morte" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">A Morte</h4>
                     <p class="text-sm font-bold border-l-4 border-chita pl-2 mb-2">Hábito de Cetim</p>
-                    <p class="text-sm leading-relaxed">Debochada e arretada, adora prega peça, e arruma confusão onde não tem, ama dançar um forró quando ver o circo pegar fogo.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">Debochada e arretada, adora prega peça, e arruma confusão onde não tem, ama dançar um forró quando ver o circo pegar fogo.</p>
                 </article>
 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                <article onclick="abrirModal('mariquinha')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="mariquinha.jpg" alt="Mariquinha" class="w-full h-full object-contain">
+                        <img src="mariquinha.jpg" alt="Mariquinha" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">Mariquinha</h4>
                     <p class="text-sm font-bold border-l-4 border-sol pl-2 mb-2">Vestido de Chita</p>
-                    <p class="text-sm leading-relaxed">O coração dela já tem dono: é apaixonada por Benedito. Mas o seu pai, que é político, coronel e brabo, não aceita o namoro de jeito nenhum.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">O coração dela já tem dono: é apaixonada por Benedito. Mas o seu pai, que é político, coronel e brabo, não aceita o namoro de jeito nenhum.</p>
                 </article>
 
-                <article class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group">
+                <article onclick="abrirModal('diabo')" class="bg-white border-4 border-xilo p-4 md:p-6 shadow-xilo hover:shadow-xilo-hover hover:translate-y-1 hover:translate-x-1 transition-all group cursor-pointer relative" title="Clique para ler a história">
+                    <div class="absolute -top-3 -right-3 bg-sol border-2 border-xilo text-xilo text-[10px] font-bold px-2 py-1 rotate-12 shadow-[2px_2px_0px_#1a1a1a] z-10 group-hover:scale-110 transition-transform">LER HISTÓRIA</div>
                     <div class="w-full aspect-[4/3] bg-black border-b-4 border-xilo mb-4 flex items-center justify-center overflow-hidden rounded-sm">
-                        <img src="o diabo.jpg" alt="O Diabo" class="w-full h-full object-contain">
+                        <img src="o diabo.jpg" alt="O Diabo" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
                     </div>
                     <h4 class="font-titulo text-2xl text-chita mb-2 group-hover:text-terra transition-colors">O Diabo</h4>
                     <p class="text-sm font-bold border-l-4 border-xilo pl-2 mb-2">Máscara e Chifres</p>
-                    <p class="text-sm leading-relaxed">Ele retrata a luta entre o bem e o mal com temas atuais do cotidiano nordestino.</p>
+                    <p class="text-sm leading-relaxed line-clamp-3">Ele retrata a luta entre o bem e o mal com temas atuais do cotidiano nordestino.</p>
                 </article>
+            </div>
+        </section>
+
+        <!-- SESSÃO DOS IDEALIZADORES -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <div onclick="abrirModalCriadores()" class="bg-madeira border-8 border-xilo shadow-[8px_8px_0px_#1a1a1a] p-6 md:p-10 text-center cursor-pointer group hover:-translate-y-2 hover:shadow-[12px_12px_0px_#1a1a1a] transition-all relative overflow-hidden flex flex-col items-center justify-center min-h-[200px]">
+                
+                <!-- Textura de fundo estilo cordel -->
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_2px,transparent_2px)] bg-[size:20px_20px]"></div>
+                
+                <!-- Estrelas decorativas animadas -->
+                <svg class="absolute top-4 left-4 w-10 h-10 md:w-14 md:h-14 text-sol animate-[spin_15s_linear_infinite] opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                <svg class="absolute bottom-4 right-4 w-10 h-10 md:w-14 md:h-14 text-sol animate-[spin_15s_linear_infinite] opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+
+                <div class="relative z-10">
+                    <h3 class="font-titulo text-3xl sm:text-4xl md:text-5xl text-sol mb-4 drop-shadow-[3px_3px_0px_#1a1a1a] group-hover:scale-105 transition-transform">Os Mestres por trás das Cortinas</h3>
+                    <p class="font-corpo font-bold text-cordel text-base md:text-xl max-w-2xl mx-auto mb-6">Conheça as mentes criativas e as mãos talentosas que dão vida ao nosso Teatro.</p>
+                    
+                    <button class="bg-sol text-xilo font-titulo text-base md:text-xl px-6 py-3 border-4 border-xilo shadow-[4px_4px_0px_#1a1a1a] group-hover:bg-cordel transition-colors">
+                        Ver Currículos
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -239,7 +282,6 @@
     <footer class="bg-xilo text-cordel text-center py-10 border-t-8 border-terra mt-12">
         <div class="max-w-4xl mx-auto px-4 flex flex-col items-center">
             
-            <!-- MODIFICAÇÃO: Bloco visual do contador mantido, agora alimentado por lógica local -->
             <div class="mb-8 p-4 border-4 border-double border-sol inline-block bg-xilo relative shadow-[4px_4px_0px_#800000]">
                 <p class="font-corpo text-[10px] uppercase tracking-widest text-cordel opacity-70 mb-1 italic">Passaram por este terreiro</p>
                 <div class="flex items-center justify-center gap-2">
@@ -247,27 +289,144 @@
                     <span class="font-titulo text-xl text-sol">viventes</span>
                 </div>
             </div>
-            <!-- FIM DA MODIFICAÇÃO -->
 
             <p class="font-titulo text-xl md:text-2xl mb-2 text-sol">Bonecos no Quengo &copy; 2026</p>
             <p class="text-xs md:text-sm opacity-80 mb-6">Criado com paixão pela cultura popular nordestina. Pernambuco - Brasil.</p>
             
             <div class="flex gap-6 justify-center">
-                <a href="#" class="text-cordel hover:text-sol hover:-translate-y-1 transition-transform" aria-label="WhatsApp" title="Fale com a gente no WhatsApp">
+                <a href="javascript:void(0)" class="text-cordel hover:text-sol hover:-translate-y-1 transition-transform" aria-label="WhatsApp" title="Fale com a gente no WhatsApp">
                     <svg class="w-8 h-8 md:w-10 md:h-10 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.628.84 5.068 2.247 7.085L.445 24l5.065-1.787C7.452 23.491 9.664 24 12.031 24 18.68 24 24 18.68 24 12.031 24 5.383 18.68 0 12.031 0zm0 21.996c-2.228 0-4.32-.72-6.04-1.968l-.434-.312-3.486 1.23.93-3.396-.341-.456C1.408 15.352.744 13.736.744 12.03.744 5.795 5.795.744 12.03.744 18.265.744 23.316 5.795 23.316 12.03c0 6.236-5.051 11.287-11.285 11.287l-.001-.321zm6.183-7.854c-.339-.17-2.006-.991-2.316-1.104-.311-.114-.538-.17-.765.17-.227.34-.875 1.104-1.072 1.332-.198.227-.396.255-.735.085-.34-.17-1.431-.528-2.727-1.684-1.008-.899-1.69-2.008-1.888-2.348-.198-.34-.02-.524.15-.694.152-.15.34-.396.509-.594.17-.198.227-.34.34-.566.114-.227.057-.425-.028-.595-.085-.17-.765-1.841-1.048-2.522-.276-.665-.556-.575-.765-.585-.198-.01-.425-.01-.652-.01-.227 0-.594.085-.905.425-.311.34-1.189 1.161-1.189 2.831 0 1.67 1.218 3.284 1.388 3.51.17.227 2.396 3.655 5.805 5.127 2.45 1.056 3.328 1.144 4.195 1.004.99-.16 2.006-.818 2.29-1.61.283-.793.283-1.472.198-1.614-.085-.142-.311-.227-.65-.396z"/></svg>
                 </a>
-                <a href="#" class="text-cordel hover:text-sol hover:-translate-y-1 transition-transform" aria-label="Instagram" title="Siga a gente no Instagram">
+                <a href="https://www.instagram.com/bonecosnoquengo" target="_blank" rel="noopener noreferrer" class="text-cordel hover:text-sol hover:-translate-y-1 transition-transform" aria-label="Instagram" title="Siga a gente no Instagram">
                     <svg class="w-8 h-8 md:w-10 md:h-10 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                 </a>
-                <a href="#" class="text-cordel hover:text-sol hover:-translate-y-1 transition-transform" aria-label="YouTube" title="Assista nossos vídeos no YouTube">
+                <a href="javascript:void(0)" class="text-cordel hover:text-sol hover:-translate-y-1 transition-transform" aria-label="YouTube" title="Assista nossos vídeos no YouTube">
                     <svg class="w-8 h-8 md:w-10 md:h-10 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
             </div>
         </div>
     </footer>
 
+    <!-- MODAL 1: PERSONAGENS -->
+    <div id="modal-personagem" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4">
+        <!-- Fundo escuro (Backdrop) -->
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer transition-opacity"></div>
+        
+        <!-- Caixa de conteúdo do Modal -->
+        <div class="relative bg-cordel border-8 border-madeira shadow-[10px_10px_0px_#1a1a1a] w-full max-w-3xl max-h-[90vh] rounded-sm flex flex-col md:flex-row z-10 overflow-hidden transform transition-transform scale-95 opacity-0" id="modal-caixa">
+            
+            <!-- Botão Fechar -->
+            <button id="btn-fechar-modal" class="absolute top-2 right-2 w-10 h-10 bg-terra text-sol font-titulo text-xl border-4 border-xilo shadow-[2px_2px_0px_#1a1a1a] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all z-20 rounded-sm">X</button>
+
+            <!-- Lado Esquerdo: Imagem do Personagem -->
+            <div class="w-full md:w-2/5 bg-xilo border-b-8 md:border-b-0 md:border-r-8 border-madeira flex items-center justify-center p-4 min-h-[250px] relative">
+                <!-- Textura de fundo atrás da foto para dar charme -->
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:10px_10px]"></div>
+                <img id="modal-img" src="" alt="Personagem" class="max-h-64 md:max-h-80 object-contain relative z-10 drop-shadow-[5px_5px_0px_#800000]">
+            </div>
+
+            <!-- Lado Direito: História -->
+            <div class="w-full md:w-3/5 p-6 md:p-8 flex flex-col modal-scroll overflow-y-auto">
+                <h3 id="modal-titulo" class="font-titulo text-3xl md:text-5xl text-terra mb-1 drop-shadow-[2px_2px_0px_rgba(26,26,26,0.2)]">Nome</h3>
+                <p id="modal-subtitulo" class="font-bold text-sm md:text-base border-l-4 border-sol pl-2 mb-6 text-chita uppercase tracking-widest bg-sol/20 inline-block pr-3 py-1">Subtítulo</p>
+                
+                <!-- Container da História -->
+                <div id="modal-texto" class="font-corpo text-sm md:text-base leading-relaxed text-xilo space-y-4 mb-8">
+                    <!-- Textos injetados via JS -->
+                </div>
+                
+                <!-- Autoria -->
+                <div class="mt-auto pt-4 border-t-2 border-dashed border-terra">
+                    <p class="text-xs md:text-sm font-bold text-terra opacity-90" id="modal-criador">Criado por: </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2 - IDEALIZADORES / CRIADORES -->
+    <div id="modal-criadores" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4">
+        <!-- Fundo escuro (Backdrop) -->
+        <div id="backdrop-criadores" class="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer transition-opacity"></div>
+        
+        <!-- Caixa de conteúdo do Modal dos Criadores -->
+        <div class="relative bg-cordel border-8 border-madeira shadow-[10px_10px_0px_#1a1a1a] w-full max-w-4xl max-h-[95vh] rounded-sm flex flex-col z-10 overflow-hidden transform transition-transform scale-95 opacity-0" id="caixa-criadores">
+            
+            <button id="btn-fechar-criadores" class="absolute top-2 right-2 w-10 h-10 bg-terra text-sol font-titulo text-xl border-4 border-xilo shadow-[2px_2px_0px_#1a1a1a] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all z-20 rounded-sm">X</button>
+
+            <!-- Cabeçalho do Modal -->
+            <div class="bg-madeira border-b-8 border-xilo p-6 text-center shrink-0 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 20px 20px;"></div>
+                <h3 class="font-titulo text-3xl md:text-5xl text-sol drop-shadow-[3px_3px_0px_#1a1a1a] relative z-10">Os Criadores</h3>
+            </div>
+
+            <!-- Lista de Currículos (Scrollable) -->
+            <div class="p-6 md:p-10 overflow-y-auto modal-scroll space-y-12">
+                
+                <!-- CRIADOR 1 (Gilliarde Medeiros) -->
+                <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
+                    <div class="w-48 h-48 md:w-56 md:h-56 shrink-0 border-4 border-xilo bg-white p-2 shadow-[6px_6px_0px_#800000] rotate-[-3deg] hover:rotate-0 transition-transform">
+                        <img src="Gilliarde Medeiros.jpg" alt="Gilliarde Medeiros" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h4 class="font-titulo text-2xl md:text-4xl text-terra mb-2">Gilliarde Medeiros</h4>
+                        <p class="font-bold text-sm md:text-base border-l-4 border-sol pl-2 mb-4 text-chita uppercase tracking-widest bg-sol/20 inline-block pr-3 py-1">Diretor / Ator / Bonequeiro</p>
+                        <div class="font-corpo text-xilo text-sm md:text-base leading-relaxed space-y-3 text-justify md:text-left">
+                            <p>Graduando em Teatro pela UFPE, Bonequeiro, atuando como Manipulador de Bonecos e Ator, com foco em teatro de bonecos e mamulengo.</p>
+                            <p>Experiência em performance, teatro clássico, arte-educador, iluminação teatral e cenografia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Separador Estiloso -->
+                <div class="flex justify-center my-8">
+                    <svg class="w-8 h-8 text-terra opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                    <svg class="w-8 h-8 text-terra opacity-50 mx-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                    <svg class="w-8 h-8 text-terra opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                </div>
+
+                <!-- CRIADOR 2 (Luziara Medeiros) -->
+                <div class="flex flex-col md:flex-row-reverse gap-6 md:gap-10 items-center md:items-start">
+                    <div class="w-48 h-48 md:w-56 md:h-56 shrink-0 border-4 border-xilo bg-white p-2 shadow-[6px_6px_0px_#1e3a8a] rotate-[3deg] hover:rotate-0 transition-transform">
+                        <img src="Luziara Medeiros.jpg" alt="Luziara Medeiros" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
+                    </div>
+                    <div class="flex-1 text-center md:text-right">
+                        <h4 class="font-titulo text-2xl md:text-4xl text-terra mb-2">Luziara Medeiros</h4>
+                        <p class="font-bold text-sm md:text-base border-r-0 md:border-r-4 border-l-4 md:border-l-0 border-sol pl-2 md:pl-0 pr-0 md:pr-2 mb-4 text-chita uppercase tracking-widest bg-sol/20 inline-block px-3 py-1">Diretora / Atriz / Bonequeira</p>
+                        <div class="font-corpo text-xilo text-sm md:text-base leading-relaxed space-y-3 text-justify md:text-right">
+                            <p>Professora de Teatro graduada pela UFPE, atuando como manipuladora de bonecos e atriz, com foco em teatro de bonecos e mamulengo.</p>
+                            <p>Experiência em performances, bonequeira e arte educadora.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Separador Estiloso -->
+                <div class="flex justify-center my-8">
+                    <svg class="w-8 h-8 text-terra opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                    <svg class="w-8 h-8 text-terra opacity-50 mx-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                    <svg class="w-8 h-8 text-terra opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5 9 .5-7 5.5 2.5 9-7.5-6-7.5 6 2.5-9-7-5.5 9-.5z"/></svg>
+                </div>
+
+                <!-- CRIADOR 3 (Patrícia Luna) -->
+                <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
+                    <div class="w-48 h-48 md:w-56 md:h-56 shrink-0 border-4 border-xilo bg-white p-2 shadow-[6px_6px_0px_#800000] rotate-[-3deg] hover:rotate-0 transition-transform">
+                        <img src="Patricia Luna.jpg" alt="Patrícia Luna" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100\' height=\'100\' fill=\'%231a1a1a\'/><text x=\'50\' y=\'50\' font-family=\'monospace\' font-size=\'12\' fill=\'%23fff\' text-anchor=\'middle\'>Sem Imagem</text></svg>'">
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h4 class="font-titulo text-2xl md:text-4xl text-terra mb-2">Patrícia Luna</h4>
+                        <p class="font-bold text-sm md:text-base border-l-4 border-sol pl-2 mb-4 text-chita uppercase tracking-widest bg-sol/20 inline-block pr-3 py-1">Diretora / Atriz / Bonequeira</p>
+                        <div class="font-corpo text-xilo text-sm md:text-base leading-relaxed space-y-3 text-justify md:text-left">
+                            <p>Atriz apaixonada pelo universo da cultura popular. Tenho uma personalidade instigante, curiosa e criativa, sempre buscando novas formas de expressão através da arte.</p>
+                            <p>Encontro no mamulengo uma maneira especial de levar alegria, reflexão e tradição ao público, valorizando a riqueza da cultura nordestina. Amo a arte, o teatro e tudo que envolve criatividade, emoção e conexão com as pessoas.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- LÓGICA JAVASCRIPT -->
-    <!-- MODIFICAÇÃO: Removido script type="module" e dependências do Firebase para evitar bloqueio do carregamento -->
     <script>
         // 1. Animação de abertura da Empanada
         const empanada = document.getElementById('empanada');
@@ -295,40 +454,168 @@
                 setTimeout(() => {
                     empanada.style.display = 'none';
                     conteudo.classList.remove('opacity-0');
-
-                    // MODIFICAÇÃO: Chamada do contador local e resiliente após a abertura
                     atualizarContadorLocal();
                 }, 500);
 
             }, 1000); 
         });
 
-        // MODIFICAÇÃO: Implementada lógica de contador local via localStorage (sem dependência de banco de dados ou rede)
+        // Lógica de contador local via localStorage
         function atualizarContadorLocal() {
             try {
-                // MODIFICAÇÃO: Recupera o valor atual do armazenamento local ou define um valor base (ex: 1250) para simular tráfego histórico
                 let acessos = localStorage.getItem('quengo_visitas');
                 
                 if (!acessos) {
-                    acessos = 1250; // MODIFICAÇÃO: Valor inicial arbitrário para o site não começar do zero absoluto
+                    acessos = 1250; 
                 } else {
                     acessos = parseInt(acessos);
                 }
 
-                acessos++; // MODIFICAÇÃO: Incremento do contador na abertura da cortina
-                
-                // MODIFICAÇÃO: Persistência do novo valor no navegador do usuário
+                acessos++; 
                 localStorage.setItem('quengo_visitas', acessos);
-                
-                // MODIFICAÇÃO: Atualização visual imediata na UI
                 document.getElementById('contador-numero').innerText = acessos.toLocaleString('pt-BR');
             } catch (e) {
-                // MODIFICAÇÃO: Fallback silencioso caso o localStorage esteja bloqueado (ex: modo anônimo restrito)
                 document.getElementById('contador-numero').innerText = "1.251";
             }
         }
 
-        // 2. Lógica do "Gerador de Cordel"
+        // 2. Lógica do Modal de Personagens
+        const dadosPersonagens = {
+            farofa: {
+                nome: "Farofa",
+                subtitulo: "Palhaço de Lã",
+                imagem: "farofa.jpg",
+                historia: "<p>É um adolescente cheio de energia, esperto e muito inteligente. Com seu jeito engraçado e divertido, ele adora fazer brincadeiras, contar piadas e arrancar risadas da criançada. Mas não se engane com seu jeito atrapalhado: Farofa sempre encontra uma solução criativa para os problemas e vive ensinando lições importantes de amizade, respeito e alegria.</p><p>Curioso e cheio de imaginação, Farofa gosta de aprender coisas novas, fazer perguntas e transformar qualquer situação em uma grande aventura. Com seu coração bondoso e seu humor nordestino arretado, ele conquista todo mundo por onde passa!</p>",
+                criador: "Criado pela bonequeira Maria Oliveira no Projeto Criação e Confecção de Bonecos de Mamulengo em Papel Machê - APTB"
+            },
+            ze: {
+                nome: "Zé do Saco",
+                subtitulo: "Barba de Sisal",
+                imagem: "ze do saco.jpg",
+                historia: "<p>É um senhor simples, trabalhador e muito conhecido pelas ruas por andar com seu saco cheio de objetos para fazer troca-troca. Dentro do saco tem de tudo um pouco: brinquedo velho, panela, corda, apito e até coisas engraçadas que ninguém imagina!</p><p>Apesar das más línguas e das histórias que o povo inventa, Zé do Saco é um homem bondoso, alegre e de coração enorme. Ele gosta muito de conversar, brincar e aconselhar as crianças, sempre ensinando sobre respeito, honestidade e amizade. Com seu jeito divertido e sábio, ele transforma cada chegada em uma aventura cheia de humor e surpresa no teatro de mamulengo.</p>",
+                criador: "Criado pela Atriz Patrícia Luna no Projeto Criação e Confecção de Bonecos de Mamulengo em Papel Machê - APTB"
+            },
+            xoxa: {
+                nome: "Xoxa",
+                subtitulo: "Comadre Faladeira",
+                imagem: "xoxa.jpg",
+                historia: "<p>É uma personagem tipicamente nordestina que representa situações do cotidiano de forma bem-humorada. Tem uma personalidade forte, gosta de dançar, brigar e interagir com o público.</p><p>É uma figura cômica e simples do povo que, na sua simplicidade e no improviso, levanta reflexões sobre as situações sociais que enfrenta na vida.</p>",
+                criador: "Criado pelo Ator Gilliard Medeiros na oficina Quem quer ser uma artesã? - Museu do Mamulengo"
+            },
+            benedito: {
+                nome: "Benedito",
+                subtitulo: "Herói Valente",
+                imagem: "benedito.jpg",
+                historia: "<p>É vaqueiro daqueles de nascença, cabra trabalhador que vive no campo e não tem medo de lida pesada. Esperto, alegre e arretado, ele usa a coragem pra encarar qualquer autoridade osso duro e até assombração quando aparece.</p><p>Não foge de confusão e se for pra defender Mariquinha, o amor de sua vida ele vai até o fim sem piscar o olho. Ele representa a resistência e a alegria do povo nordestino.</p>",
+                criador: "Criado pelo Ator Gilliard Medeiros na oficina Quem quer ser uma artesã? - Museu do Mamulengo"
+            },
+            morte: {
+                nome: "A Morte",
+                subtitulo: "Hábito de Cetim",
+                imagem: "a morte.jpg",
+                historia: "<p>É dona de uma gargalhada imponente que, ao invés de assustar, arranca risada da plateia inteira. No mamulengo, ela é sempre a mais metida a valente, mas acaba sendo enganada por todos os outros personagens.</p><p>Debochada e arretada, adora prega peça, e arruma confusão onde não tem, ama dançar um forró quando ver o circo pegar fogo. Ela anda com a foice mas a verdadeira força dela é fazer o povo rir até não aguentar.</p>",
+                criador: "Criada por Mestre Bila - Museu do Mamulengo"
+            },
+            mariquinha: {
+                nome: "Mariquinha",
+                subtitulo: "Vestido de Chita",
+                imagem: "mariquinha.jpg",
+                historia: "<p>É moça bonita e mansa que virou o xodó da todos. Gosta de dançar, cantar e encanta a todos com o sorriso e seu jeito simples. O coração dela já tem dono: é apaixonada por Benedito. Mas o seu pai, que é político, coronel e brabo, não aceita o namoro de jeito nenhum.</p><p>Vive entre a vontade de seguir o amor e o respeito ao pai, mas não esconde a teimosia de quem ama de verdade.</p>",
+                criador: "Criada por artesão Igor da Rabeca - Museu do Mamulengo"
+            },
+            diabo: {
+                nome: "O Diabo",
+                subtitulo: "Máscara e Chifres",
+                imagem: "o diabo.jpg",
+                historia: "<p>É uma personagem enganador e mentiroso que usa sua boa eloquência pra tentar levar os outros personagens do mamulengo ao erro. Mas ele é atrapalhado e acaba sendo facilmente superado pela inteligência e astúcia dos demais.</p><p>Quando aparece, sempre puxa risos, gritaria e agita a plateia. Por trás da brincadeira, o enredo do Diabo traz uma verdade social: ele retrata a luta entre o bem e o mal com temas atuais do cotidiano nordestino.</p>",
+                criador: "Criado pelo Ator Gilliard Medeiros na oficina Quem quer ser uma artesã? - Museu do Mamulengo"
+            }
+        };
+
+        const modalPersonagem = document.getElementById('modal-personagem');
+        const modalCaixaPersonagem = document.getElementById('modal-caixa');
+        const modalBackdropPersonagem = document.getElementById('modal-backdrop');
+        const btnFecharModalPersonagem = document.getElementById('btn-fechar-modal');
+        
+        function abrirModal(idPersonagem) {
+            const dados = dadosPersonagens[idPersonagem];
+            if (!dados) return;
+
+            document.getElementById('modal-img').src = dados.imagem;
+            document.getElementById('modal-img').alt = dados.nome;
+            document.getElementById('modal-titulo').innerText = dados.nome;
+            document.getElementById('modal-subtitulo').innerText = dados.subtitulo;
+            document.getElementById('modal-texto').innerHTML = dados.historia;
+            
+            const pCriador = document.getElementById('modal-criador');
+            if (dados.criador) {
+                pCriador.innerHTML = `<span class="text-xilo">Da mão de:</span> ${dados.criador}`;
+                pCriador.style.display = 'block';
+            } else {
+                pCriador.style.display = 'none';
+            }
+
+            modalPersonagem.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+            
+            setTimeout(() => {
+                modalCaixaPersonagem.classList.remove('scale-95', 'opacity-0');
+                modalCaixaPersonagem.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function fecharModal() {
+            modalCaixaPersonagem.classList.remove('scale-100', 'opacity-100');
+            modalCaixaPersonagem.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modalPersonagem.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        modalBackdropPersonagem.addEventListener('click', fecharModal);
+        btnFecharModalPersonagem.addEventListener('click', fecharModal);
+
+        // 3. Lógica do Modal dos Idealizadores/Criadores
+        const modalCriadores = document.getElementById('modal-criadores');
+        const caixaCriadores = document.getElementById('caixa-criadores');
+        const backdropCriadores = document.getElementById('backdrop-criadores');
+        const btnFecharCriadores = document.getElementById('btn-fechar-criadores');
+
+        function abrirModalCriadores() {
+            modalCriadores.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+            
+            setTimeout(() => {
+                caixaCriadores.classList.remove('scale-95', 'opacity-0');
+                caixaCriadores.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function fecharModalCriadores() {
+            caixaCriadores.classList.remove('scale-100', 'opacity-100');
+            caixaCriadores.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modalCriadores.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        backdropCriadores.addEventListener('click', fecharModalCriadores);
+        btnFecharCriadores.addEventListener('click', fecharModalCriadores);
+
+        // Fecha modais com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!modalPersonagem.classList.contains('hidden')) fecharModal();
+                if (!modalCriadores.classList.contains('hidden')) fecharModalCriadores();
+            }
+        });
+
+
+        // 4. Lógica do "Gerador de Cordel"
         const btnGerar = document.getElementById('btn-gerar');
         const seletorBoneco = document.getElementById('seletor-boneco');
         const textoCordel = document.getElementById('texto-cordel');
